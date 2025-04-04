@@ -1,5 +1,9 @@
-/* Add your global styles here */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-gray-400;
 }
