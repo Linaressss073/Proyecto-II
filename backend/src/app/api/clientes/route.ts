@@ -1,14 +1,14 @@
 // src/app/api/clientes/route.ts
 import { NextResponse } from 'next/server';
-import { createClient } from '@/app/models/clienteModel';
+import { createCliente } from '@/app/models/clienteModel';
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { nombre, correo, password, rol } = body;
+    const { nombre, documento, correo, telefono } = body;
 
-    const result = createClient({ nombre, correo, password, rol });
-    if (!result.success) {
+    const result = createCliente ({ nombre, documento, correo, telefono });
+    if (await !result.success) {
       return NextResponse.json({ error: result.message }, { status: 400 });
     }
 
