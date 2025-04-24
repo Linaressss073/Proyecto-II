@@ -1,6 +1,8 @@
 import { db } from '@/app/lib/db';
 import { z } from 'zod';
 
+//buenas noches 
+
 // ✅ Schema de validación con zod
 export const clienteSchema = z.object({
   nombre: z.string().min(1, 'El nombre es requerido'),
