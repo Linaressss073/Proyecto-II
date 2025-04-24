@@ -17,10 +17,12 @@ Este proyecto es el backend de un sistema para la **gestión de reservas de hosp
 
 ---
 
-## 📁 Estructura del Proyecto
-backend/ │ ├── src/ │ ├── config/ │ │ ├── db.js # Conexión a SQLite │ │ ├── setup.js # Creación de tablas iniciales │ │ └── database.sqlite # Archivo de base de datos SQLite │ ├── controllers/ │ │ └── reservasController.js # Lógica de negocio para reservas │ ├── models/ │ │ └── reservaModel.js # Funciones de acceso a datos │ ├── routes/ │ │ └── reservas.js # Endpoints de reservas │ └── app.js # Configuración principal de Express │ ├── index.js # Punto de entrada (levanta el servidor) ├── .env # Variables de entorno (ej. PORT) ├── package.json └── README.md
-
----
+Proyecto-II/
+│
+├── backend/
+│   ├── src/
+|
+├── frontend/
 
 ## 🧩 Funcionalidades Actuales
 
