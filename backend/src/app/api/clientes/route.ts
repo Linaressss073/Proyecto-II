@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const { nombre, documento, correo, telefono } = body;
 
     const result = createClient ({ nombre, documento, correo, telefono });
-    if (await !result.success) {
+    if ( !result.success) {
       return NextResponse.json({ error: result.message }, { status: 400 });
     }
 
