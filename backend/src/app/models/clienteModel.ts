@@ -33,17 +33,27 @@ export async function getClientById(id: number): Promise<Client | undefined> {
 }
 
 // ✅ Crear un nuevo cliente
-export async function createClient(data: NewClient): Promise<{ success: boolean }> {
+export async function createClient(data: NewClient): Promise<{ success: boolean; message?: string }> {
   const { nombre, documento, correo, telefono } = data;
 
-  await db.run(
-    `INSERT INTO Cliente (nombre, documento, correo, telefono)
-     VALUES (?, ?, ?, ?)`,
-    [nombre, documento, correo, telefono]
-  );
+  try {
+    await db.run(
+      `INSERT INTO Cliente (nombre, documento, correo, telefono)
+       VALUES (?, ?, ?, ?)`,
+      [nombre, documento, correo, telefono]
+    );
 
-  return { success: true };
+    return { success: true };
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message || 'Error al registrar el cliente',
+    };
+  }
 }
+
+
+
 
 // ✅ Actualizar un cliente
 export async function updateClient(id: number, data: Partial<NewClient>): Promise<{ success: boolean }> {
